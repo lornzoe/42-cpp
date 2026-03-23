@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/24 07:12:42 by lyanga            #+#    #+#             */
+/*   Created: 2026/03/24 07:17:09 by lyanga            #+#    #+#             */
 /*   Updated: 2026/03/24 07:18:24 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ITER_HPP
-#define ITER_HPP
+#include <iostream>
+#include <vector>
+#include <list>
+#include "easyfind.hpp"
 
-#include <cstddef>
+int main() {
+    std::vector<int> v;
+    for (int i = 1; i <= 5; ++i) v.push_back(i);
+    if (easyfind(v, 3) != v.end()) std::cout << "found 3 in vector\n";
+    if (easyfind(v, 99) == v.end()) std::cout << "99 not found in vector\n";
 
-template<typename T>
-void iter(T *array, size_t length, void (*func)(T &))
-{
-    for (size_t i = 0; i < length; ++i)
-        func(array[i]);
+    std::list<int> l;
+    l.push_back(11);
+    l.push_back(22);
+    if (easyfind(l, 22) != l.end()) std::cout << "found 22 in list\n";
+
+    return 0;
 }
-
-#endif // ITER_HPP

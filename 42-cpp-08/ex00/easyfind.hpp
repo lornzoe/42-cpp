@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter.hpp                                           :+:      :+:    :+:   */
+/*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/24 07:12:42 by lyanga            #+#    #+#             */
+/*   Created: 2026/03/24 07:17:07 by lyanga            #+#    #+#             */
 /*   Updated: 2026/03/24 07:18:24 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ITER_HPP
-#define ITER_HPP
+#ifndef EASYFIND_HPP
+#define EASYFIND_HPP
 
-#include <cstddef>
+#include <algorithm>
 
 template<typename T>
-void iter(T *array, size_t length, void (*func)(T &))
+typename T::iterator easyfind(T &container, int value)
 {
-    for (size_t i = 0; i < length; ++i)
-        func(array[i]);
+    return std::find(container.begin(), container.end(), value);
 }
 
-#endif // ITER_HPP
+#endif // EASYFIND_HPP

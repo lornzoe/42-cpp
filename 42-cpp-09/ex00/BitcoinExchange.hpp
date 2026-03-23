@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter.hpp                                           :+:      :+:    :+:   */
+/*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/24 07:12:42 by lyanga            #+#    #+#             */
+/*   Created: 2026/03/24 07:17:55 by lyanga            #+#    #+#             */
 /*   Updated: 2026/03/24 07:18:24 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ITER_HPP
-#define ITER_HPP
+#ifndef BITCOINEXCHANGE_HPP
+#define BITCOINEXCHANGE_HPP
 
-#include <cstddef>
+#include <string>
+#include <map>
 
-template<typename T>
-void iter(T *array, size_t length, void (*func)(T &))
+class BitcoinExchange
 {
-    for (size_t i = 0; i < length; ++i)
-        func(array[i]);
-}
+public:
+    BitcoinExchange();
+    ~BitcoinExchange();
+    void loadDatabase(const std::string &path);
+    void processInput(const std::string &path);
 
-#endif // ITER_HPP
+private:
+    std::map<std::string, double> rates;
+    bool validDate(const std::string &date) const;
+    bool parseLine(const std::string &line, std::string &date, double &value) const;
+};
+
+#endif // BITCOINEXCHANGE_HPP

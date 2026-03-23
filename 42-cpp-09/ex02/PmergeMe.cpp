@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter.hpp                                           :+:      :+:    :+:   */
+/*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/24 07:12:42 by lyanga            #+#    #+#             */
+/*   Created: 2026/03/24 07:18:18 by lyanga            #+#    #+#             */
 /*   Updated: 2026/03/24 07:18:24 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ITER_HPP
-#define ITER_HPP
+#include "PmergeMe.hpp"
+#include <algorithm>
 
-#include <cstddef>
+PmergeMe::PmergeMe() {}
+PmergeMe::~PmergeMe() {}
 
-template<typename T>
-void iter(T *array, size_t length, void (*func)(T &))
-{
-    for (size_t i = 0; i < length; ++i)
-        func(array[i]);
+// Using straightforward sort (not full Ford-Johnson) but using two containers
+std::vector<int> PmergeMe::sortVector(const std::vector<int> &input) {
+    std::vector<int> out(input);
+    std::sort(out.begin(), out.end());
+    return out;
 }
 
-#endif // ITER_HPP
+std::deque<int> PmergeMe::sortDeque(const std::deque<int> &input) {
+    std::deque<int> out(input);
+    std::sort(out.begin(), out.end());
+    return out;
+}

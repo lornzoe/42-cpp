@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/24 07:12:42 by lyanga            #+#    #+#             */
+/*   Created: 2026/03/24 07:17:57 by lyanga            #+#    #+#             */
 /*   Updated: 2026/03/24 07:18:24 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ITER_HPP
-#define ITER_HPP
+#include "BitcoinExchange.hpp"
+#include <iostream>
 
-#include <cstddef>
-
-template<typename T>
-void iter(T *array, size_t length, void (*func)(T &))
-{
-    for (size_t i = 0; i < length; ++i)
-        func(array[i]);
+int main(int argc, char **argv) {
+    if (argc != 3) {
+        std::cerr << "Usage: " << argv[0] << " <database.csv> <input.csv>\n";
+        return 1;
+    }
+    BitcoinExchange b;
+    b.loadDatabase(argv[1]);
+    b.processInput(argv[2]);
+    return 0;
 }
-
-#endif // ITER_HPP
