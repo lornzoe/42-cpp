@@ -6,7 +6,7 @@
 #    By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/17 18:51:16 by lyanga            #+#    #+#              #
-#    Updated: 2026/03/17 19:03:49 by lyanga           ###   ########.fr        #
+#    Updated: 2026/03/24 02:59:49 by lyanga           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ OBJS = $(SRCS:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
+	$(CPP) $(CPPFLAGS) -o $(NAME) $(OBJS)
 
 clean:
 	rm -f $(OBJS)
