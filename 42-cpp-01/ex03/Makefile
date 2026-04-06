@@ -6,13 +6,13 @@
 #    By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/24 06:50:18 by lyanga            #+#    #+#              #
-#    Updated: 2026/03/24 06:51:23 by lyanga           ###   ########.fr        #
+#    Updated: 2026/04/06 12:29:57 by lyanga           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ex03
 CPP = c++
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic -ansi
 RM = rm -f
 
 SRCS = main.cpp \
