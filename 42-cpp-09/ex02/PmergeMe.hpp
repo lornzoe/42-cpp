@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 07:18:20 by lyanga            #+#    #+#             */
-/*   Updated: 2026/03/24 07:18:24 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/04/06 19:24:55 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 
 class PmergeMe {
 public:
-    PmergeMe();
-    ~PmergeMe();
+	PmergeMe();
+	~PmergeMe();
 
-    static std::vector<int> sortVector(const std::vector<int> &input);
-    static std::deque<int> sortDeque(const std::deque<int> &input);
+	static std::vector<int> sortVector(const std::vector<int> &input);
+	static std::deque<int> sortDeque(const std::deque<int> &input);
 };
 
 #endif // PMERGEME_HPP
