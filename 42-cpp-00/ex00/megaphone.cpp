@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 15:41:34 by lyanga            #+#    #+#             */
-/*   Updated: 2026/03/17 15:52:54 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/04/06 09:04:21 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,12 @@ int main(int argc, char **argv)
 	{
 		for (int i = 1; i < argc; i++)
 		{
-			for (int x = 0; x < strlen(argv[i]); x++)
+			for (int x = 0; x < (int)strlen(argv[i]); x++)
 			{
 				std::cout << (char)toupper(argv[i][x]);
 			}
 		}
 	}
 	std::cout << std::endl;
-
 	return (0);
 }
