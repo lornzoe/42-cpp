@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 17:26:36 by lyanga            #+#    #+#             */
-/*   Updated: 2026/03/17 19:01:31 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/04/06 11:18:17 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,70 +24,43 @@ PhoneBook::PhoneBook()
 
 PhoneBook::~PhoneBook() {}
 
+static std::string inputPrompt(std::string prompt)
+{
+	std::string input = "";
+	while (1)
+	{
+		input = "";
+		std::cin.clear();
+		std::cout << prompt;
+		std::getline(std::cin, input);
+		if (std::cin.eof())
+			exit(0);
+		if (!input.empty()
+			&& (input.find_first_not_of(" \t\n\v\f\r") != std::string::npos))
+			break;
+		std::cout << "Empty fields not allowed." << std::endl;
+	}
+	return input;
+}
+
+static std::string trimWhitespace(std::string str)
+{
+	size_t first = str.find_first_not_of(" \t\n\v\f\r");
+	size_t last = str.find_last_not_of(" \t\n\v\f\r");
+	if (first == std::string::npos || last == std::string::npos)
+		return "";
+	return str.substr(first, last - first + 1);
+}
+
 void PhoneBook::add()
 {
 	std::string first, last, nick, num, secret;
-	std::string input = "";
 
-	while (input.empty())
-	{
-		std::cin.clear();
-		std::cout << "Enter the contact's first name: ";
-		std::getline(std::cin, input);
-		if (!input.empty())
-			break;
-		std::cout << "Empty fields not allowed." << std::endl;
-	}
-	first = input;
-	input = "";
-
-	while (input.empty())
-	{
-		std::cin.clear();
-		std::cout << "Enter the contact's last name: ";
-		std::getline(std::cin, input);
-		if (!input.empty())
-			break;
-		std::cout << "Empty fields not allowed." << std::endl;
-	}
-	last = input;
-	input = "";
-
-	while (input.empty())
-	{
-		std::cin.clear();
-		std::cout << "Enter the contact's nickname: ";
-		std::getline(std::cin, input);
-		if (!input.empty())
-			break;
-		std::cout << "Empty fields not allowed." << std::endl;
-	}
-	nick = input;
-	input = "";
-
-	while (input.empty())
-	{
-		std::cin.clear();
-		std::cout << "Enter the contact's number: ";
-		std::getline(std::cin, input);
-		if (!input.empty())
-			break;
-		std::cout << "Empty fields not allowed." << std::endl;
-	}
-	num = input;
-	input = "";
-
-	while (input.empty())
-	{
-		std::cin.clear();
-		std::cout << "Enter the contact's darkest secret: ";
-		std::getline(std::cin, input);
-		if (!input.empty())
-			break;
-		std::cout << "Empty fields not allowed." << std::endl;
-	}
-	secret = input;
-	input = "";
+	first = trimWhitespace(inputPrompt("Enter the contact's first name: "));
+	last = trimWhitespace(inputPrompt("Enter the contact's last name: "));
+	nick = trimWhitespace(inputPrompt("Enter the contact's nickname: "));
+	num = trimWhitespace(inputPrompt("Enter the contact's number: "));
+	secret = trimWhitespace(inputPrompt("Enter the contact's darkest secret: "));
 
 	int indexToUse = highestIndex % 8 + 1;
 	contacts[indexToUse] = Contact(indexToUse, first, last, nick, num, secret);
