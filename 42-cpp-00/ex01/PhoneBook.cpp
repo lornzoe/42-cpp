@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 17:26:36 by lyanga            #+#    #+#             */
-/*   Updated: 2026/04/06 11:18:17 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/04/06 12:04:12 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ void PhoneBook::add()
 	num = trimWhitespace(inputPrompt("Enter the contact's number: "));
 	secret = trimWhitespace(inputPrompt("Enter the contact's darkest secret: "));
 
-	int indexToUse = highestIndex % 8 + 1;
-	contacts[indexToUse] = Contact(indexToUse, first, last, nick, num, secret);
 	highestIndex++;
+	int indexToUse = highestIndex % 8;
+	contacts[indexToUse] = Contact(indexToUse, first, last, nick, num, secret);
 	if (highestIndex >= 8)
 		std::cout << "There are more than 8 contacts, the oldest contact will be replaced." << std::endl;
 }
@@ -84,6 +84,17 @@ void PhoneBook::search()
 		std::cout << "There's no contacts to search." << std::endl;
 		return;
 	}
+
+	// Header
+	std::cout << "|";
+	std::cout << std::setw(10) << "index";
+	std::cout << "|";
+	std::cout << std::setw(10) << "firstname";
+	std::cout << "|";
+	std::cout << std::setw(10) << "lastname";
+	std::cout << "|";
+	std::cout << std::setw(10) << "nickname";
+	std::cout << "|" << std::endl;
 
 	// Displaying table of contacts
 	for (int i = 0; i < 45; i++)
