@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 15:41:34 by lyanga            #+#    #+#             */
-/*   Updated: 2026/04/06 10:01:05 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/04/06 12:21:42 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,6 @@
 #include <cstring>
 #include <cctype>
 
-char to_upper(char c)
-{
-	if (c >= 'a' && c <= 'z')
-		return (c - 32);
-	return (c);
-}
 
 int main(int argc, char **argv)
 {
