@@ -6,16 +6,24 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 06:49:33 by lyanga            #+#    #+#             */
-/*   Updated: 2026/03/24 06:51:23 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/04/06 16:50:06 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+#include <string>
+#include <iostream>
+#include <sstream>
 
 Zombie* zombieHorde(int N, std::string name) {
     Zombie* horde = new Zombie[N];
-    for (int i = 0; i < N; i++) {
-        horde[i].setName(name);
+    for (int i = 0; i < N; i++)
+    {
+        int val  = i + 1;
+        std::stringstream ss;
+        ss << val;
+        std::string s = ss.str();
+        horde[i].setName(name + " " + s);
     }
     return horde;
 }
