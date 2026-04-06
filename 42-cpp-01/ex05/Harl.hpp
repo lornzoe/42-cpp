@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 06:51:12 by lyanga            #+#    #+#             */
-/*   Updated: 2026/04/06 19:24:32 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/04/06 20:38:53 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,19 @@
 
 # include <string>
 
-class Harl {
-public:
-	Harl(void);
-	~Harl(void);
+class Harl
+{
+	public:
+		Harl(void);
+		~Harl(void);
 
-	void complain(std::string level);
+		void complain(std::string level);
 
-private:
-	void debug(void);
-	void info(void);
-	void warning(void);
-	void error(void);
+	private:
+		void debug(void);
+		void info(void);
+		void warning(void);
+		void error(void);
 };
 
 #endif

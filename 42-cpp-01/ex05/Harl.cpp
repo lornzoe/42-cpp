@@ -6,47 +6,50 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 06:51:09 by lyanga            #+#    #+#             */
-/*   Updated: 2026/04/06 19:24:32 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/04/06 20:38:44 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Harl.hpp"
 
-Harl::Harl(void) {
-	return;
-}
+Harl::Harl(void) {}
 
-Harl::~Harl(void) {
-	return;
-}
+Harl::~Harl(void) {}
 
-void Harl::debug(void) {
+void Harl::debug(void)
+{
 	std::cout << "[ DEBUG ]" << std::endl;
 	std::cout << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger. I really do!" << std::endl;
 }
 
-void Harl::info(void) {
+void Harl::info(void)
+{
 	std::cout << "[ INFO ]" << std::endl;
 	std::cout << "I cannot believe adding extra bacon costs more money. You didn’t put enough bacon in my burger! If you did, I wouldn’t be asking for more!" << std::endl;
 }
 
-void Harl::warning(void) {
+void Harl::warning(void)
+{
 	std::cout << "[ WARNING ]" << std::endl;
 	std::cout << "I think I deserve to have some extra bacon for free. I’ve been coming for years, whereas you started working here just last month." << std::endl;
 }
 
-void Harl::error(void) {
+void Harl::error(void)
+{
 	std::cout << "[ ERROR ]" << std::endl;
 	std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
 }
 
-void Harl::complain(std::string level) {
+void Harl::complain(std::string level)
+{
 	void (Harl::*f[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
-	for (int i = 0; i < 4; i++) {
-		if (levels[i] == level) {
+	for (int i = 0; i < 4; i++)
+	{
+		if (levels[i] == level)
+		{
 			(this->*f[i])();
 			return;
 		}
