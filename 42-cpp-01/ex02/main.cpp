@@ -6,14 +6,15 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 06:49:37 by lyanga            #+#    #+#             */
-/*   Updated: 2026/04/06 16:54:07 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/04/06 17:06:30 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
 
-int main(void) {
+int main(void)
+{
     std::string str = "THE STRING";
     std::string* stringPTR = &str;
     std::string& stringREF = str;

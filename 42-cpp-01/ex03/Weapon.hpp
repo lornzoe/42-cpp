@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 06:50:29 by lyanga            #+#    #+#             */
-/*   Updated: 2026/03/24 06:51:23 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/04/06 18:11:44 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,17 @@
 
 # include <string>
 
-class Weapon {
-public:
-    Weapon(std::string type);
-    ~Weapon(void);
+class Weapon
+{
+	public:
+		Weapon(std::string type);
+		~Weapon(void);
 
-    const std::string& getType(void) const;
-    void setType(std::string type);
+		const std::string& getType(void) const;
+		void setType(std::string type);
 
-private:
-    std::string _type;
+	private:
+		std::string _type;
 };
 
 #endif

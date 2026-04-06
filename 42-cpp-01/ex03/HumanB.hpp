@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 06:50:13 by lyanga            #+#    #+#             */
-/*   Updated: 2026/03/24 06:51:23 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/04/06 18:08:18 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,18 @@
 # include "Weapon.hpp"
 # include <string>
 
-class HumanB {
-public:
-    HumanB(std::string name);
-    ~HumanB(void);
+class HumanB
+{
+    public:
+        HumanB(std::string name);
+        ~HumanB(void);
 
-    void setWeapon(Weapon& weapon);
-    void attack(void);
+        void setWeapon(Weapon& weapon);
+        void attack(void);
 
-private:
-    std::string _name;
-    Weapon* _weapon;
+    private:
+        std::string _name;
+        Weapon* _weapon;
 };
 
 #endif

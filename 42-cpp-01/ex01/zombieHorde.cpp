@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 06:49:33 by lyanga            #+#    #+#             */
-/*   Updated: 2026/04/06 16:50:06 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/04/06 17:06:20 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 #include <iostream>
 #include <sstream>
 
-Zombie* zombieHorde(int N, std::string name) {
+Zombie* zombieHorde(int N, std::string name)
+{
     Zombie* horde = new Zombie[N];
     for (int i = 0; i < N; i++)
     {

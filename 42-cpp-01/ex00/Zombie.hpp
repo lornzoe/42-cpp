@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 20:13:03 by lyanga            #+#    #+#             */
-/*   Updated: 2026/04/06 16:31:33 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/04/06 17:03:27 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,16 @@
 
 # include <string>
 
-class Zombie {
-public:
-    Zombie(std::string name);
-    ~Zombie(void);
+class Zombie
+{
+    public:
+        Zombie(std::string name);
+        ~Zombie(void);
 
-    void announce(void);
+        void announce(void);
 
-private:
-    std::string _name;
+    private:
+        std::string _name;
 };
 
 #endif
