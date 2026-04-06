@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 20:11:42 by lyanga            #+#    #+#             */
-/*   Updated: 2026/03/24 06:27:23 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/04/06 16:34:00 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ Zombie* newZombie(std::string name);
 void randomChump(std::string name);
 
 int main(void) {
+    randomChump("Stack Zombie");
+    
     Zombie* heapZombie = newZombie("Heap Zombie");
     heapZombie->announce();
     delete heapZombie;
-
-    randomChump("Stack Zombie");
-
+    
     return 0;
 }
