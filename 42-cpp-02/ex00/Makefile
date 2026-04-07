@@ -6,7 +6,7 @@
 #    By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/24 06:54:17 by lyanga            #+#    #+#              #
-#    Updated: 2026/03/24 06:54:17 by lyanga           ###   ########.fr        #
+#    Updated: 2026/04/07 13:39:47 by lyanga           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,9 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CPP) $(CPPFLAGS) -o $(NAME) $(OBJS)
+
+$(OBJS): %.o: %.cpp 
+	$(CPP) $(CPPFLAGS) -I./ -c $< -o $@
 
 clean:
 	$(RM) $(OBJS)
