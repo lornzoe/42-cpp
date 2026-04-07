@@ -6,7 +6,7 @@
 #    By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/24 07:03:14 by lyanga            #+#    #+#              #
-#    Updated: 2026/03/24 07:04:59 by lyanga           ###   ########.fr        #
+#    Updated: 2026/04/07 14:11:40 by lyanga           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,9 @@ CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 $(NAME): $(OBJS)
 	c++ $(CPPFLAGS) $(OBJS) -o $(NAME)
+
+$(OBJS): %.o: %.cpp 
+	$(CPP) $(CPPFLAGS) -I./ -c $< -o $@
 
 %.o: %.cpp
 	c++ $(CPPFLAGS) -c $< -o $@
