@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 06:55:14 by lyanga            #+#    #+#             */
-/*   Updated: 2026/04/06 19:24:35 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/04/07 16:06:01 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,18 @@ int main(void) {
 	std::cout << "Point p3 is " << (bsp(a, b, c, p3) ? "outside" : "outside") << std::endl;
 	std::cout << "Point p4 is " << (bsp(a, b, c, p4) ? "inside" : "outside") << std::endl;
 	std::cout << "Point p5 is " << (bsp(a, b, c, p5) ? "inside" : "outside") << std::endl;
+
+	Point d(0.0f, 0.0f);
+	Point e(10.f, 0.f);
+	Point f(5.f, 10.f);
+	
+	Point p6(5.f, 10.f); // On vertex
+	Point p7(0.0f, 0.1f); // Outside
+	Point p8(0.01f, 0.01f); // Inside
+
+	std::cout << "Point p6 is " << (bsp(d, e, f, p6) ? "inside" : "outside") << std::endl;
+	std::cout << "Point p7 is " << (bsp(d, e, f, p7) ? "inside" : "outside") << std::endl;
+	std::cout << "Point p8 is " << (bsp(d, e, f, p8) ? "inside" : "outside") << std::endl;
 
 	return 0;
 }
