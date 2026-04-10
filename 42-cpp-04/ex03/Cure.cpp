@@ -6,16 +6,16 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 07:04:28 by lyanga            #+#    #+#             */
-/*   Updated: 2026/04/06 19:24:44 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/04/11 07:09:15 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
 #include "ICharacter.hpp"
+#include <iostream>
 
-Cure::Cure() : AMateria()
+Cure::Cure() : AMateria("cure")
 {
-	type = "cure";
 	std::cout << "Cure constructor called" << std::endl;
 }
 
@@ -43,5 +43,5 @@ AMateria *Cure::clone() const
 
 void Cure::use(ICharacter &target)
 {
-	std::cout << "* casts a cure spell on " << target.getName() << " *" << std::endl;
+	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }

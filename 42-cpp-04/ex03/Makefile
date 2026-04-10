@@ -7,23 +7,24 @@ SRCS = main.cpp \
 	   Character.cpp \
 	   MateriaSource.cpp
 
+CXX = c++
+
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -MP
+
 OBJS = $(SRCS:.cpp=.o)
 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+DEPS = $(OBJS:.o=.d)
 
 $(NAME): $(OBJS)
-	c++ $(CPPFLAGS) $(OBJS) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
-$(OBJS): %.o: %.cpp 
-	$(CPP) $(CPPFLAGS) -I./ -c $< -o $@
-
-%.o: %.cpp
-	c++ $(CPPFLAGS) -c $< -o $@
+-include $(DEPS)
 
 all: $(NAME)
 
 clean:
 	rm -f $(OBJS)
+	rm -f $(DEPS)
 
 fclean: clean
 	rm -f $(NAME)

@@ -6,14 +6,13 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 07:04:21 by lyanga            #+#    #+#             */
-/*   Updated: 2026/04/06 19:24:43 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/04/11 07:08:22 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef IMATERIA_HPP
 #define IMATERIA_HPP
 
-#include <iostream>
 #include <string>
 
 class ICharacter;
@@ -25,6 +24,7 @@ protected:
 
 public:
 	AMateria();
+	AMateria(std::string const & type);
 	AMateria(const AMateria &other);
 	AMateria &operator=(const AMateria &other);
 	virtual ~AMateria();

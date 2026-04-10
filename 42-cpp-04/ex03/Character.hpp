@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 07:04:25 by lyanga            #+#    #+#             */
-/*   Updated: 2026/04/06 19:24:44 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/04/11 06:22:15 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ public:
 	virtual bool equip(AMateria *m);
 	virtual bool unequip(int idx);
 	virtual void use(int idx, ICharacter &target);
+
+	// inventory getter, only intended to help save the address of materias before deleting them.
+	AMateria *getInventory(int idx);
 };
 
 #endif

@@ -6,16 +6,16 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 07:04:33 by lyanga            #+#    #+#             */
-/*   Updated: 2026/04/06 19:24:44 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/04/11 07:09:01 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 #include "ICharacter.hpp"
+#include <iostream>
 
-Ice::Ice() : AMateria()
+Ice::Ice() : AMateria("ice")
 {
-	type = "ice";
 	std::cout << "Ice constructor called" << std::endl;
 }
 

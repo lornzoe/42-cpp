@@ -6,16 +6,22 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 07:04:18 by lyanga            #+#    #+#             */
-/*   Updated: 2026/04/06 19:24:43 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/04/11 07:09:32 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 #include "ICharacter.hpp"
+#include <iostream>
 
 AMateria::AMateria() : type("unknown")
 {
 	std::cout << "AMateria constructor called" << std::endl;
+}
+
+AMateria::AMateria(std::string const & type) : type(type)
+{
+	std::cout << "AMateria constructor (type) called" << std::endl;
 }
 
 AMateria::AMateria(const AMateria &other) : type(other.type)
