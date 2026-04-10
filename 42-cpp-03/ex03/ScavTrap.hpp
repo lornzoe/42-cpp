@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 06:57:57 by lyanga            #+#    #+#             */
-/*   Updated: 2026/04/10 21:37:23 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/04/10 21:42:46 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap {
+class ScavTrap : virtual public ClapTrap {
 	public:
 		ScavTrap(std::string name);
 		ScavTrap(const ScavTrap& other);
