@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 07:03:10 by lyanga            #+#    #+#             */
-/*   Updated: 2026/04/06 19:24:42 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/04/11 04:39:52 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,22 +34,28 @@ int main()
 
 	std::cout << "\n=== Testing deep copy and brain storage ===" << std::endl;
 	Dog *dog1 = new Dog();
-	dog1->getBrain()->setIdea(0, "Chase the ball");
-	dog1->getBrain()->setIdea(1, "Find food");
+	dog1->getBrain()->setIdea(0, "Woof");
+	dog1->getBrain()->setIdea(1, "Bark");
 
-	Dog *dog2 = new Dog(*dog1);
+	{
+		Dog *dog2 = new Dog(*dog1);
+		std::cout << "dog1 brain idea[0]: " << dog1->getBrain()->getIdea(0) << std::endl;
+		std::cout << "dog2 brain idea[0]: " << dog2->getBrain()->getIdea(0) << std::endl;
+		std::cout << "dog1 brain idea[1]: " << dog1->getBrain()->getIdea(1) << std::endl;
+		std::cout << "dog2 brain idea[1]: " << dog2->getBrain()->getIdea(1) << std::endl;
+
+		std::cout << "\nChanging dog2 brain idea[0]:" << std::endl;
+		
+		dog2->getBrain()->setIdea(0, "Sleep on couch");
+		std::cout << "dog1 brain idea[0]: " << dog1->getBrain()->getIdea(0) << std::endl;
+		std::cout << "dog2 brain idea[0]: " << dog2->getBrain()->getIdea(0) << std::endl;
+
+		delete dog2;
+	}
+
 	std::cout << "dog1 brain idea[0]: " << dog1->getBrain()->getIdea(0) << std::endl;
-	std::cout << "dog2 brain idea[0]: " << dog2->getBrain()->getIdea(0) << std::endl;
 	std::cout << "dog1 brain idea[1]: " << dog1->getBrain()->getIdea(1) << std::endl;
-	std::cout << "dog2 brain idea[1]: " << dog2->getBrain()->getIdea(1) << std::endl;
-
-	std::cout << "\nChanging dog2 brain idea[0]:" << std::endl;
-	dog2->getBrain()->setIdea(0, "Sleep on couch");
-	std::cout << "dog1 brain idea[0]: " << dog1->getBrain()->getIdea(0) << std::endl;
-	std::cout << "dog2 brain idea[0]: " << dog2->getBrain()->getIdea(0) << std::endl;
-
 	delete dog1;
-	delete dog2;
 
 	std::cout << "\n=== Deleting all animals ===" << std::endl;
 	for (int i = 0; i < 10; i++)

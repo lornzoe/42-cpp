@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 07:02:01 by lyanga            #+#    #+#             */
-/*   Updated: 2026/04/06 19:24:40 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/04/11 04:35:41 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,5 @@ Dog::~Dog()
 
 void Dog::makeSound() const
 {
-	std::cout << "Woof! Woof!" << std::endl;
+	std::cout << "Woof." << std::endl;
 }
