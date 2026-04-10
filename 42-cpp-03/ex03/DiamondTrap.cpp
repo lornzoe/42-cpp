@@ -6,17 +6,21 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 06:59:08 by lyanga            #+#    #+#             */
-/*   Updated: 2026/04/10 21:24:27 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/04/11 00:28:42 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
 DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(name + "_clap_name"), FragTrap(name + "_clap_name"), _name(name) {
-	this->_hitPoints = FragTrap::_hitPoints;
-	this->_energyPoints = ScavTrap::_energyPoints;
-	this->_attackDamage = FragTrap::_attackDamage;
+	this->_hitPoints = 100;
+	this->_energyPoints = 50;
+	this->_attackDamage = 30;
 	std::cout << "DiamondTrap " << this->_name << " constructed" << std::endl;
+	std::cout << this->_name << " was initialised with: " << std::endl
+		<< "	" << _hitPoints << " Hit points," << std::endl
+		<< "	" << _energyPoints << " Energy points," << std::endl
+		<< "	" << _attackDamage << " Attack damage" << std::endl;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap& other) : ClapTrap(other), ScavTrap(other), FragTrap(other), _name(other._name) {
