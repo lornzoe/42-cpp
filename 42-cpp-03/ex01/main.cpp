@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 06:57:40 by lyanga            #+#    #+#             */
-/*   Updated: 2026/04/10 23:49:39 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/04/11 00:03:05 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ int main(void) {
 	scav.takeDamage(30);
 	scav.beRepaired(20);
 	scav.guardGate();
-	scav.guardGate();
+	
+	ScavTrap *scav2 = new ScavTrap(scav);
+	scav2->guardGate();
+	delete scav2;
 	
 	std::cout << std::endl;
 

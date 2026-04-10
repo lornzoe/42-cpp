@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 06:58:18 by lyanga            #+#    #+#             */
-/*   Updated: 2026/04/10 20:14:57 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/04/11 00:12:48 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,8 @@ FragTrap::~FragTrap(void) {
 }
 
 void FragTrap::highFivesGuys(void) {
-	std::cout << "FragTrap " << this->_name << " requests high fives (positively)!" << std::endl;
+	if (_hitPoints == 0)
+		std::cout << "FragTrap " << this->_name << " is out of HP and cannot request high fives (positively)! :(" << std::endl;
+	else
+		std::cout << "FragTrap " << this->_name << " requests high fives (positively)!" << std::endl;
 }
