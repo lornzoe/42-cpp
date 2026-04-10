@@ -6,21 +6,20 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 06:57:55 by lyanga            #+#    #+#             */
-/*   Updated: 2026/04/10 23:46:19 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/04/10 23:57:03 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name), _guard(false) {
 	this->_hitPoints = 100;
 	this->_energyPoints = 50;
 	this->_attackDamage = 20;
-	this->_guard = false;
 	std::cout << "ScavTrap " << this->_name << " constructed" << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other) {
+ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other), _guard(false) {
 	std::cout << "ScavTrap copy constructor called" << std::endl;
 }
 
