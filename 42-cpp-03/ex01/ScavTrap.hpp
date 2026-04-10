@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 06:57:57 by lyanga            #+#    #+#             */
-/*   Updated: 2026/04/10 21:37:23 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/04/10 23:42:11 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ class ScavTrap : public ClapTrap {
 
 		void attack(const std::string& target);
 		void guardGate(void);
+	
+	private:
+		bool _guard;
 };
 
 #endif

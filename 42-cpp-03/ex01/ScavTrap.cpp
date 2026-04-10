@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 06:57:55 by lyanga            #+#    #+#             */
-/*   Updated: 2026/04/10 19:56:24 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/04/10 23:46:19 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
 	this->_hitPoints = 100;
 	this->_energyPoints = 50;
 	this->_attackDamage = 20;
+	this->_guard = false;
 	std::cout << "ScavTrap " << this->_name << " constructed" << std::endl;
 }
 
@@ -46,5 +47,12 @@ void ScavTrap::attack(const std::string& target) {
 }
 
 void ScavTrap::guardGate(void) {
-	std::cout << "ScavTrap " << this->_name << " is now in Gatekeeper mode." << std::endl;
+	if (!_guard) {
+		_guard = !_guard;
+		std::cout << "ScavTrap " << this->_name << " is now in Gatekeeper mode." << std::endl;
+	}
+	else {
+		_guard = !_guard;
+		std::cout << "ScavTrap " << this->_name << " is no longer in Gatekeeper mode." << std::endl;
+	}
 }
