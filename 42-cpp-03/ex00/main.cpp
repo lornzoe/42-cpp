@@ -6,24 +6,40 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 06:57:07 by lyanga            #+#    #+#             */
-/*   Updated: 2026/04/06 19:24:36 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/04/10 19:39:07 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 int main(void) {
-	ClapTrap clap("CL4P-TP");
-	
-	clap.attack("enemy");
-	clap.takeDamage(5);
-	clap.beRepaired(3);
-	
-	// Test with no energy
-	for (int i = 0; i < 10; i++) {
-		clap.attack("enemy");
+	{
+		ClapTrap clap("attacktrap");
+		for (int i = 0; i < 10; i++)
+		{
+			clap.attack("nothing");
+		}
+		clap.attack("something");
 	}
-	clap.attack("enemy"); // Should fail - no energy
-	
+	std::cout << std::endl;
+	{
+		ClapTrap clap2("deadtrap");
+		for (int i = 0; i < 10; i++)
+		{
+			clap2.takeDamage(1);
+		}
+		clap2.takeDamage(1);
+		clap2.beRepaired(1);
+		clap2.attack("something else");
+	}
+	std::cout << std::endl;
+	{
+		ClapTrap clap3("healtrap");
+		for (int i = 0; i < 10; i++)
+		{
+			clap3.beRepaired(1);
+		}
+		clap3.beRepaired(1);
+	}
 	return 0;
 }

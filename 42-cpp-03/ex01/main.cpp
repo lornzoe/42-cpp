@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 06:57:40 by lyanga            #+#    #+#             */
-/*   Updated: 2026/04/06 19:24:36 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/04/10 20:01:16 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,16 @@
 #include "ClapTrap.hpp"
 
 int main(void) {
-	ScavTrap scav("ScavTrap-001");
+	ScavTrap scav("scavvy");
 	
-	scav.attack("enemy");
+	std::cout << std::endl;
+
+	scav.attack("something");
 	scav.takeDamage(30);
 	scav.beRepaired(20);
 	scav.guardGate();
 	
+	std::cout << std::endl;
+
 	return 0;
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/24 06:59:17 by lyanga            #+#    #+#             */
-/*   Updated: 2026/04/06 19:24:38 by lyanga           ###   ########.fr       */
+/*   Created: 2026/03/24 06:58:20 by lyanga            #+#    #+#             */
+/*   Updated: 2026/04/10 21:38:59 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 
 # include "ClapTrap.hpp"
 
-class FragTrap : virtual public ClapTrap {
-public:
-	FragTrap(std::string name);
-	FragTrap(const FragTrap& other);
-	FragTrap& operator=(const FragTrap& other);
-	~FragTrap(void);
+class FragTrap : public ClapTrap {
+	public:
+		FragTrap(std::string name);
+		FragTrap(const FragTrap& other);
+		FragTrap& operator=(const FragTrap& other);
+		~FragTrap(void);
 
-	void attack(const std::string& target);
-	void highFivesGuys(void);
+		void highFivesGuys(void);
+
 };
 
 #endif

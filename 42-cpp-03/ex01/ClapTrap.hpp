@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/24 06:57:37 by lyanga            #+#    #+#             */
-/*   Updated: 2026/04/06 19:24:36 by lyanga           ###   ########.fr       */
+/*   Created: 2026/03/24 06:57:05 by lyanga            #+#    #+#             */
+/*   Updated: 2026/04/10 21:37:07 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,21 @@
 # include <iostream>
 
 class ClapTrap {
-public:
-	ClapTrap(std::string name);
-	ClapTrap(const ClapTrap& other);
-	ClapTrap& operator=(const ClapTrap& other);
-	~ClapTrap(void);
+	public:
+		ClapTrap(std::string name);
+		ClapTrap(const ClapTrap& other);
+		ClapTrap& operator=(const ClapTrap& other);
+		~ClapTrap(void);
 
-	void attack(const std::string& target);
-	void takeDamage(unsigned int amount);
-	void beRepaired(unsigned int amount);
+		void attack(const std::string& target);
+		void takeDamage(unsigned int amount);
+		void beRepaired(unsigned int amount);
 
-protected:
-	std::string _name;
-	unsigned int _hitPoints;
-	unsigned int _energyPoints;
-	unsigned int _attackDamage;
+	private:
+		std::string _name;
+		unsigned int _hitPoints;
+		unsigned int _energyPoints;
+		unsigned int _attackDamage;
 };
 
 #endif

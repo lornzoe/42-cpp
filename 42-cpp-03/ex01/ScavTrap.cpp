@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 06:57:55 by lyanga            #+#    #+#             */
-/*   Updated: 2026/04/06 19:24:36 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/04/10 19:56:24 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ void ScavTrap::attack(const std::string& target) {
 		return;
 	}
 	this->_energyPoints--;
-	std::cout << "ScavTrap " << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " points of damage!" << std::endl;
+	std::cout << "ScavTrap " << this->_name << " scavs " << target << " all over the place, causing " << this->_attackDamage << " points of damage!" << std::endl;
 }
 
 void ScavTrap::guardGate(void) {
-	std::cout << "ScavTrap " << this->_name << " is now in Gatekeeper mode!" << std::endl;
+	std::cout << "ScavTrap " << this->_name << " is now in Gatekeeper mode." << std::endl;
 }
