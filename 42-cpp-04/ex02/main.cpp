@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 07:03:43 by lyanga            #+#    #+#             */
-/*   Updated: 2026/04/06 19:24:43 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/04/11 04:52:29 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@
 
 int main()
 {
-	// Animal *animal = new Animal(); // This will cause compilation error - Animal is abstract!
+	// either should give an error.
+	// Animal *animal = new Animal(); 
+	// Animal animal1;
 
 	std::cout << "=== Creating dogs and cats (Animal is abstract) ===" << std::endl;
 	Animal *dog = new Dog();
