@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 07:08:32 by lyanga            #+#    #+#             */
-/*   Updated: 2026/05/07 18:00:41 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/05/07 18:01:06 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class ShrubberyCreationForm : public AForm
 
 		ShrubberyCreationForm	&operator=(const ShrubberyCreationForm &rhs);
 
-		virtual void		action(void) const;
+		virtual void			action(void) const;
 };
 
 #endif
