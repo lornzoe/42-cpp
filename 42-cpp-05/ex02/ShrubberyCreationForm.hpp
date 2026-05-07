@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 07:07:54 by lyanga            #+#    #+#             */
-/*   Updated: 2026/04/06 19:24:48 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/05/07 17:59:37 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,19 @@
 
 class ShrubberyCreationForm : public AForm
 {
-private:
-	std::string	_target;
+	private:
+		std::string	_target;
 
-	ShrubberyCreationForm(void);
+		ShrubberyCreationForm(void);
 
-public:
-	ShrubberyCreationForm(const std::string &target);
-	ShrubberyCreationForm(const ShrubberyCreationForm &src);
-	~ShrubberyCreationForm(void);
+	public:
+		ShrubberyCreationForm(const std::string &target);
+		ShrubberyCreationForm(const ShrubberyCreationForm &src);
+		~ShrubberyCreationForm(void);
 
-	ShrubberyCreationForm	&operator=(const ShrubberyCreationForm &rhs);
+		ShrubberyCreationForm	&operator=(const ShrubberyCreationForm &rhs);
 
-	virtual void	action(void) const;
+		virtual void			action(void) const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 07:08:04 by lyanga            #+#    #+#             */
-/*   Updated: 2026/04/06 19:24:49 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/05/07 17:59:58 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,39 +21,39 @@ class AForm;
 
 class Bureaucrat
 {
-private:
-	const std::string	_name;
-	int					_grade;
+	private:
+		const std::string	_name;
+		int					_grade;
 
-	Bureaucrat(void);
+		Bureaucrat(void);
 
-public:
-	Bureaucrat(const std::string &name, int grade);
-	Bureaucrat(const Bureaucrat &src);
-	~Bureaucrat(void);
-
-	Bureaucrat	&operator=(const Bureaucrat &rhs);
-
-	const std::string	&getName(void) const;
-	int					getGrade(void) const;
-
-	void	incrementGrade(void);
-	void	decrementGrade(void);
-
-	void	signForm(AForm &f);
-	void	executeForm(const AForm &f);
-
-	class GradeTooHighException : public std::exception
-	{
 	public:
-		virtual const char	*what(void) const throw();
-	};
+		Bureaucrat(const std::string &name, int grade);
+		Bureaucrat(const Bureaucrat &src);
+		~Bureaucrat(void);
 
-	class GradeTooLowException : public std::exception
-	{
-	public:
-		virtual const char	*what(void) const throw();
-	};
+		Bureaucrat	&operator=(const Bureaucrat &rhs);
+
+		const std::string	&getName(void) const;
+		int					getGrade(void) const;
+
+		void				incrementGrade(void);
+		void				decrementGrade(void);
+
+		void				signForm(AForm &f);
+		void				executeForm(const AForm &f);
+
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				virtual const char	*what(void) const throw();
+		};
+
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				virtual const char	*what(void) const throw();
+		};
 };
 
 std::ostream	&operator<<(std::ostream &o, const Bureaucrat &b);

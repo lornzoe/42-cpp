@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 07:08:11 by lyanga            #+#    #+#             */
-/*   Updated: 2026/04/06 19:24:50 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/05/07 17:47:32 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "PresidentialPardon.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include <exception>
 #include <iostream>
 
 int main(void)

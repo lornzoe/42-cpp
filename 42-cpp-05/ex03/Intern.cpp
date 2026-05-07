@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 07:08:06 by lyanga            #+#    #+#             */
-/*   Updated: 2026/04/06 19:24:49 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/05/07 17:46:33 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,20 +42,22 @@ AForm	*Intern::makeForm(const std::string &formName, const std::string &target)
 		"robotomy request",
 		"shrubbery creation"
 	};
+	int i = 0;
 
-	for (int i = 0; i < 3; i++)
+	while (i < 3 && formName != forms[i])
+		i++;
+
+	switch (i)
 	{
-		if (formName == forms[i])
-		{
-			if (i == 0)
-				return (new PresidentialPardon(target));
-			else if (i == 1)
-				return (new RobotomyRequestForm(target));
-			else
-				return (new ShrubberyCreationForm(target));
-		}
+		case 0:
+			return (new PresidentialPardon(target));
+		case 1:
+			return (new RobotomyRequestForm(target));
+		case 2:
+			return (new ShrubberyCreationForm(target));
+		default:
+			throw Intern::UnknownFormException();
 	}
-	throw Intern::UnknownFormException();
 }
 
 const char	*Intern::UnknownFormException::what(void) const throw()

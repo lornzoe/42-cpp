@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 07:07:03 by lyanga            #+#    #+#             */
-/*   Updated: 2026/04/06 19:24:47 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/05/07 17:59:18 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,19 @@
 
 class PresidentialPardon : public AForm
 {
-private:
-	std::string	_target;
+	private:
+		std::string	_target;
 
-	PresidentialPardon(void);
+		PresidentialPardon(void);
 
-public:
-	PresidentialPardon(const std::string &target);
-	PresidentialPardon(const PresidentialPardon &src);
-	~PresidentialPardon(void);
+	public:
+		PresidentialPardon(const std::string &target);
+		PresidentialPardon(const PresidentialPardon &src);
+		~PresidentialPardon(void);
 
-	PresidentialPardon	&operator=(const PresidentialPardon &rhs);
+		PresidentialPardon	&operator=(const PresidentialPardon &rhs);
 
-	virtual void	action(void) const;
+		virtual void		action(void) const;
 };
 
 #endif

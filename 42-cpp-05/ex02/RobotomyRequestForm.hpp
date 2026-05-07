@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 07:07:08 by lyanga            #+#    #+#             */
-/*   Updated: 2026/04/06 19:24:48 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/05/07 17:59:31 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,19 @@
 
 class RobotomyRequestForm : public AForm
 {
-private:
-	std::string	_target;
+	private:
+		std::string	_target;
 
-	RobotomyRequestForm(void);
+		RobotomyRequestForm(void);
 
-public:
-	RobotomyRequestForm(const std::string &target);
-	RobotomyRequestForm(const RobotomyRequestForm &src);
-	~RobotomyRequestForm(void);
+	public:
+		RobotomyRequestForm(const std::string &target);
+		RobotomyRequestForm(const RobotomyRequestForm &src);
+		~RobotomyRequestForm(void);
 
-	RobotomyRequestForm	&operator=(const RobotomyRequestForm &rhs);
+		RobotomyRequestForm	&operator=(const RobotomyRequestForm &rhs);
 
-	virtual void	action(void) const;
+		virtual void		action(void) const;
 };
 
 #endif
