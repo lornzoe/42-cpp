@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 07:10:37 by lyanga            #+#    #+#             */
-/*   Updated: 2026/04/06 19:24:51 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/05/07 19:18:46 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,26 +24,26 @@
 
 class ScalarConverter
 {
-private:
-	ScalarConverter(void);
-	ScalarConverter(const ScalarConverter &src);
-	~ScalarConverter(void);
-	ScalarConverter	&operator=(const ScalarConverter &rhs);
+	private:
+		ScalarConverter(void);
+		ScalarConverter(const ScalarConverter &src);
+		~ScalarConverter(void);
+		ScalarConverter	&operator=(const ScalarConverter &rhs);
 
-public:
-	static void	convert(const std::string &str);
-
-	class ImpossibleConversionException : public std::exception
-	{
 	public:
-		virtual const char	*what(void) const throw();
-	};
+		static void	convert(const std::string &str);
 
-	class NonDisplayableException : public std::exception
-	{
-	public:
-		virtual const char	*what(void) const throw();
-	};
+		class ImpossibleConversionException : public std::exception
+		{
+			public:
+				virtual const char	*what(void) const throw();
+		};
+
+		class NonDisplayableException : public std::exception
+		{
+			public:
+				virtual const char	*what(void) const throw();
+		};
 };
 
 #endif

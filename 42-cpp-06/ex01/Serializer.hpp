@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 07:11:22 by lyanga            #+#    #+#             */
-/*   Updated: 2026/04/06 19:24:51 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/05/07 19:31:39 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,15 @@ typedef uintptr_t	t_uintp;
 
 class Serializer
 {
-private:
-	Serializer(void);
-	Serializer(const Serializer &src);
-	~Serializer(void);
-	Serializer	&operator=(const Serializer &rhs);
+	private:
+		Serializer(void);
+		Serializer(const Serializer &src);
+		~Serializer(void);
+		Serializer	&operator=(const Serializer &rhs);
 
-public:
-	static t_uintp	serialize(Data *ptr);
-	static Data		*deserialize(t_uintp raw);
+	public:
+		static t_uintp	serialize(Data *ptr);
+		static Data		*deserialize(t_uintp raw);
 };
 
 #endif
