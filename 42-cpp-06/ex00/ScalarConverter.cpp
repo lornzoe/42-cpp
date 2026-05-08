@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 07:10:34 by lyanga            #+#    #+#             */
-/*   Updated: 2026/05/08 04:21:39 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/05/08 16:17:00 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void ScalarConverter::convert(const std::string &str)
 		{
             char c = str[0];
             printConverted(static_cast<char>(c), static_cast<int>(c), 
-                           static_cast<float>(c), static_cast<double>(c), false);
+                static_cast<float>(c), static_cast<double>(c), false);
             break;
         }
         case INT:
@@ -109,19 +109,19 @@ void ScalarConverter::convert(const std::string &str)
             }
             int i = static_cast<int>(d);
             printConverted(static_cast<char>(i), i, 
-                           static_cast<float>(i), static_cast<double>(i), false);
+                static_cast<float>(i), static_cast<double>(i), false);
             break;
         }
         case FLOAT:
 		{
             float f = static_cast<float>(d);
             printConverted(static_cast<char>(f), static_cast<int>(f), 
-                           f, static_cast<double>(f), false);
+                f, static_cast<double>(f), false);
             break;
         }
         case DOUBLE:
             printConverted(static_cast<char>(d), static_cast<int>(d), 
-                           static_cast<float>(d), d, false);
+                static_cast<float>(d), d, false);
             break;
         case SPECIAL:
             printSpecial(str);
