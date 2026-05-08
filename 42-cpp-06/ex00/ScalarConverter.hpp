@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 07:10:37 by lyanga            #+#    #+#             */
-/*   Updated: 2026/05/07 19:18:46 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/05/08 04:32:12 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 #include <cfloat>
 #include <cmath>
 #include <iomanip>
+#include <limits>
 
 class ScalarConverter
 {
