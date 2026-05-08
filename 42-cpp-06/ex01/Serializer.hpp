@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 07:11:22 by lyanga            #+#    #+#             */
-/*   Updated: 2026/05/07 19:31:39 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/05/08 10:26:35 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 #include "Data.hpp"
 #include <stdint.h>
-
-typedef uintptr_t	t_uintp;
 
 class Serializer
 {
@@ -27,8 +25,8 @@ class Serializer
 		Serializer	&operator=(const Serializer &rhs);
 
 	public:
-		static t_uintp	serialize(Data *ptr);
-		static Data		*deserialize(t_uintp raw);
+		static uintptr_t	serialize(Data *ptr);
+		static Data		*deserialize(uintptr_t raw);
 };
 
 #endif
