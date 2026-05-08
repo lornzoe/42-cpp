@@ -6,11 +6,15 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 07:11:30 by lyanga            #+#    #+#             */
-/*   Updated: 2026/04/06 19:24:52 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/05/08 10:54:50 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Base.hpp"
+#include "A.hpp"
+#include "B.hpp"
+#include "C.hpp"
+
 #include <iostream>
 #include <cstdlib>
 #include <typeinfo>
@@ -81,11 +85,9 @@ void	identify(Base &p)
 
 int main(void)
 {
-	std::cout << "=== Testing Type Identification ===" << std::endl;
-
 	srand(time(0));
 
-	std::cout << "\n--- Test 1: Generate and Identify via Pointer ---" << std::endl;
+	std::cout <<"--- generate and identify via ptr ---" << std::endl;
 	for (int i = 0; i < 5; i++)
 	{
 		Base *obj = generate();
@@ -93,7 +95,7 @@ int main(void)
 		delete obj;
 	}
 
-	std::cout << "\n--- Test 2: Generate and Identify via Reference ---" << std::endl;
+	std::cout << std::endl << "--- generate and identify via ref ---" << std::endl;
 	for (int i = 0; i < 5; i++)
 	{
 		Base *obj = generate();

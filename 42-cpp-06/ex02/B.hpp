@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Base.hpp                                           :+:      :+:    :+:   */
+/*   B.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/24 07:11:27 by lyanga            #+#    #+#             */
-/*   Updated: 2026/05/08 10:53:41 by lyanga           ###   ########.fr       */
+/*   Created: 2026/05/08 10:43:11 by lyanga            #+#    #+#             */
+/*   Updated: 2026/05/08 10:50:59 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BASE_HPP
-#define BASE_HPP
+#ifndef B_HPP
+#define B_HPP
 
-#include <cmath>
-#include <iostream>
+#include "Base.hpp"
 
-class Base
+class B : public Base
 {
 	public:
-		Base(void);
-		virtual ~Base(void);
+		B(void);
+		virtual ~B(void);
 };
 
 #endif

@@ -6,7 +6,7 @@
 #    By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/24 07:11:32 by lyanga            #+#    #+#              #
-#    Updated: 2026/04/07 14:11:40 by lyanga           ###   ########.fr        #
+#    Updated: 2026/05/08 10:51:20 by lyanga           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = ex02
 CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = main.cpp
+SRCS = main.cpp Base.cpp A.cpp B.cpp C.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
