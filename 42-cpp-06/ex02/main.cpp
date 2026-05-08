@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 07:11:30 by lyanga            #+#    #+#             */
-/*   Updated: 2026/05/08 10:54:50 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/05/08 11:43:46 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 #include "B.hpp"
 #include "C.hpp"
 
+#include <exception>
 #include <iostream>
 #include <cstdlib>
-#include <typeinfo>
 
 Base	*generate(void)
 {
@@ -58,7 +58,7 @@ void	identify(Base &p)
 		std::cout << "Identify via reference: A" << std::endl;
 		return;
 	}
-	catch (std::bad_cast &e)
+	catch (std::exception &e)
 	{
 	}
 
@@ -68,7 +68,7 @@ void	identify(Base &p)
 		std::cout << "Identify via reference: B" << std::endl;
 		return;
 	}
-	catch (std::bad_cast &e)
+	catch (std::exception &e)
 	{
 	}
 
@@ -78,7 +78,7 @@ void	identify(Base &p)
 		std::cout << "Identify via reference: C" << std::endl;
 		return;
 	}
-	catch (std::bad_cast &e)
+	catch (std::exception &e)
 	{
 	}
 }
