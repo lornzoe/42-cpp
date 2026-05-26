@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 07:12:53 by lyanga            #+#    #+#             */
-/*   Updated: 2026/05/26 14:48:26 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/05/26 16:04:54 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int main() {
 	b[0] = 42;
 	std::cout << "a[0]=" << a[0] << " b[0]=" << b[0] << std::endl;
 
+	// out of bounds access
 	try {
 		a[10] = 1;
 	} catch (const std::exception &e) {

@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/26 14:43:26 by lyanga            #+#    #+#             */
-/*   Updated: 2026/05/26 15:08:57 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/05/26 16:56:00 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ Array<T>::Array() : _data(NULL), n(0) {}
 template<typename T>
 Array<T>::Array(unsigned int n) : _data(NULL), n(n) {
     if (n > 0)
-        _data = new T[n];
+        _data = new T[n](); 
 }
 
 template<typename T>
 Array<T>::Array(const Array &other) : _data(NULL), n(other.n) {
     if (n > 0) {
-        _data = new T[n];
+        _data = new T[n]();
         for (unsigned int i = 0; i < n; ++i)
             _data[i] = other._data[i];
     }
@@ -36,15 +36,17 @@ Array<T>::Array(const Array &other) : _data(NULL), n(other.n) {
 template<typename T>
 Array<T> &Array<T>::operator=(const Array &other) {
     if (this != &other) {
-        delete [] _data;
-        n = other.n;
-        _data = NULL;
-        if (n > 0) {
-            _data = new T[n];
-            for (std::size_t i = 0; i < n; ++i)
-                _data[i] = other._data[i];
-        }
+        Array<T> temp(other);
+        // Swap this and temp
+        unsigned int temp_n = this->n;
+        this->n = temp.n;
+        temp.n = temp_n;
+        
+        T* temp_data = this->_data;
+        this->_data = temp._data;
+        temp._data = temp_data;
     }
+    // temp will be deleted
     return *this;
 }
 
@@ -72,4 +74,4 @@ const T &Array<T>::operator[](std::size_t index) const {
     return _data[index];
 }
 
-#endif
+#endif // ARRAY_TPP
