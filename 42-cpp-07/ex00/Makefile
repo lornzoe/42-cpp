@@ -6,29 +6,31 @@
 #    By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/24 07:12:35 by lyanga            #+#    #+#              #
-#    Updated: 2026/04/07 14:11:40 by lyanga           ###   ########.fr        #
+#    Updated: 2026/05/26 13:16:52 by lyanga           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ex00
-CPP = c++
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -MP
 
 SRCS = main.cpp
 OBJS = $(SRCS:.cpp=.o)
+DEPS = $(SRCS:.cpp=.d)
+-include $(DEPS)
+
+$(NAME): $(OBJS)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 all: $(NAME)
 
-$(NAME): $(SRCS)
-	$(CPP) $(CPPFLAGS) -o $(NAME) $(SRCS)
-
 clean:
 	rm -f $(OBJS)
-
-$(OBJS): %.o: %.cpp 
-	$(CPP) $(CPPFLAGS) -I./ -c $< -o $@
+	rm -f $(DEPS)
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re
