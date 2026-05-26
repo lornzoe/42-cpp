@@ -6,7 +6,7 @@
 #    By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/24 07:12:56 by lyanga            #+#    #+#              #
-#    Updated: 2026/05/26 14:17:52 by lyanga           ###   ########.fr        #
+#    Updated: 2026/05/26 16:10:06 by lyanga           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,6 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
-# Standard pattern rule
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
