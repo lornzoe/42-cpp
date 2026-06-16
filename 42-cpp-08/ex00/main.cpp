@@ -18,13 +18,16 @@
 int main() {
 	std::vector<int> v;
 	for (int i = 1; i <= 5; ++i) v.push_back(i);
-	if (easyfind(v, 3) != v.end()) std::cout << "found 3 in vector\n";
-	if (easyfind(v, 99) == v.end()) std::cout << "99 not found in vector\n";
+	if (easyfind(v, 3) != v.end()) 
+		std::cout << "found 3 in vector" << std::endl;
+	if (easyfind(v, 99) == v.end())
+		std::cout << "99 not found in vector" << std::endl;
 
 	std::list<int> l;
 	l.push_back(11);
 	l.push_back(22);
-	if (easyfind(l, 22) != l.end()) std::cout << "found 22 in list\n";
+	if (easyfind(l, 22) != l.end())
+		std::cout << "found 22 in list" << std::endl;
 
 	return 0;
 }
