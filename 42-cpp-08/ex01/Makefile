@@ -6,15 +6,15 @@
 #    By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/24 07:17:19 by lyanga            #+#    #+#              #
-#    Updated: 2026/03/24 07:18:24 by lyanga           ###   ########.fr        #
+#    Updated: 2026/06/16 15:12:33 by lyanga           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ex01
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -MP
 
-SRCS = main.cpp
+SRCS = main.cpp Span.cpp
 OBJS     = $(SRCS:.cpp=.o)
 DEPS     = $(SRCS:.cpp=.d)
 
