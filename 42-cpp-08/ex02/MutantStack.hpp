@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 07:17:33 by lyanga            #+#    #+#             */
-/*   Updated: 2026/04/06 19:24:54 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/06/16 16:54:14 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,25 @@
 #define MUTANTSTACK_HPP
 
 #include <stack>
+#include <deque>
 
 template<typename T>
 class MutantStack : public std::stack<T> {
 public:
-	MutantStack() {}
-	MutantStack(const MutantStack &other): std::stack<T>(other) {}
-	MutantStack &operator=(const MutantStack &other) { std::stack<T>::operator=(other); return *this; }
-	~MutantStack() {}
+    MutantStack();
+    MutantStack(const MutantStack &other);
+    MutantStack &operator=(const MutantStack &other);
+    ~MutantStack();
 
-	typedef typename std::deque<T>::iterator iterator;
-	typedef typename std::deque<T>::const_iterator const_iterator;
+    typedef typename std::stack<T>::container_type::iterator iterator;
+    typedef typename std::stack<T>::container_type::const_iterator const_iterator;
 
-	iterator begin() { return this->c.begin(); }
-	iterator end() { return this->c.end(); }
-	const_iterator begin() const { return this->c.begin(); }
-	const_iterator end() const { return this->c.end(); }
+    iterator begin();
+    iterator end();
+    const_iterator begin() const;
+    const_iterator end() const;
 };
+
+#include "MutantStack.tpp"
 
 #endif // MUTANTSTACK_HPP
