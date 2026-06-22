@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 07:18:06 by lyanga            #+#    #+#             */
-/*   Updated: 2026/04/06 19:24:54 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/06/22 19:03:32 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <sstream>
 #include <stdexcept>
 #include <cstdlib>
+#include <iostream>
 
 RPN::RPN() {}
 RPN::~RPN() {}
@@ -39,8 +40,12 @@ double RPN::evaluate(const std::string &expr) const {
 	std::stringstream ss(expr);
 	std::string token;
 	while (ss >> token) {
+		std::cout << "token: [" << token << "]";
+
+
 		if (isOperator(token)) {
-			if (st.size() < 2) throw std::runtime_error("invalid expression");
+			if (st.size() < 2)
+				throw std::runtime_error("invalid expression");
 			double b = st.top(); st.pop();
 			double a = st.top(); st.pop();
 			st.push(applyOp(a, b, token));
