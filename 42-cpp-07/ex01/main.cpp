@@ -18,6 +18,11 @@ void printInt(int &x)
 	x += 1; std::cout << x << " ";
 }
 
+void printNormalInt(int x)
+{
+	std::cout << x << " ";
+}
+
 void printConstInt(const int &x) 
 {
 	const int y = x + 2; std::cout << y << " ";
@@ -40,6 +45,11 @@ int main() {
 	std::string sarr[] = {"a", "b", "c"};
 	iter<std::string>(sarr, 3, printStr);
 	std::cout << std::endl;
+
+	iter(arr, 4, printConstInt);
+	std::cout << std::endl;
+
+	iter(arr2, 4, printNormalInt);
 
 	return 0;
 }
