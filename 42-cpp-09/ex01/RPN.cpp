@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 07:18:06 by lyanga            #+#    #+#             */
-/*   Updated: 2026/06/22 19:03:32 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/06/23 13:00:54 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,13 @@
 #include <cstdlib>
 #include <iostream>
 
-RPN::RPN() {}
-RPN::~RPN() {}
-
-static bool isOperator(const std::string &tok) {
+static bool isOperator(const std::string &tok)
+{
 	return tok == "+" || tok == "-" || tok == "*" || tok == "/";
 }
 
-static double applyOp(double a, double b, const std::string &op) {
+static double applyOp(double a, double b, const std::string &op)
+{
 	if (op == "+") return a + b;
 	if (op == "-") return a - b;
 	if (op == "*") return a * b;
@@ -35,26 +34,42 @@ static double applyOp(double a, double b, const std::string &op) {
 	throw std::runtime_error("invalid operator");
 }
 
-double RPN::evaluate(const std::string &expr) const {
+static void printStack(const std::stack<double> &st)
+{
+	std::stack<double> tmp(st);
+	std::cout << "stack: [";
+	while (!tmp.empty()) {
+		std::cout << tmp.top() << (tmp.size() > 1 ? ", " : "");
+		tmp.pop();
+	}
+	std::cout << "]" << std::endl;
+}
+
+double RPN::evaluate(const std::string &expr)
+{
 	std::stack<double> st;
 	std::stringstream ss(expr);
 	std::string token;
 	while (ss >> token) {
-		std::cout << "token: [" << token << "]";
-
+		std::cout << "token: [" << token << "] ";
 
 		if (isOperator(token)) {
 			if (st.size() < 2)
 				throw std::runtime_error("invalid expression");
-			double b = st.top(); st.pop();
-			double a = st.top(); st.pop();
+			double b = st.top();
+			st.pop();
+			double a = st.top();
+			st.pop();
 			st.push(applyOp(a, b, token));
-		} else {
+		}
+		else
+		{
 			char *end;
 			double val = strtod(token.c_str(), &end);
 			if (*end != '\0') throw std::runtime_error("invalid token");
 			st.push(val);
 		}
+		printStack(st);
 	}
 	if (st.size() != 1) throw std::runtime_error("invalid expression");
 	return st.top();

@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 07:18:02 by lyanga            #+#    #+#             */
-/*   Updated: 2026/06/22 18:56:13 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/06/23 12:43:08 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,9 @@ int main(int argc, char **argv) {
 		std::cerr << "Usage: " << argv[0] << " \"RPN expression\"\n";
 		return 1;
 	}
-	RPN r;
 	try
 	{
-		double res = r.evaluate(argv[1]);
+		double res = RPN::evaluate(argv[1]);
 		std::cout << std::endl << res << std::endl;
 	}
 	catch (const std::exception &e)
