@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 07:17:55 by lyanga            #+#    #+#             */
-/*   Updated: 2026/06/22 17:42:07 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/06/23 12:54:48 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,14 @@ class BitcoinExchange
 public:
 	BitcoinExchange();
 	~BitcoinExchange();
+	
 	void loadDatabase();
 	void processInput(const std::string &path);
 
 private:
+	BitcoinExchange(const BitcoinExchange &other);
+	BitcoinExchange &operator=(const BitcoinExchange &other);
+	
 	std::map<std::string, double> rates;
 
 	// helper functions

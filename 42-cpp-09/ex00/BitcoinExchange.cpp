@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 07:17:42 by lyanga            #+#    #+#             */
-/*   Updated: 2026/06/22 18:41:24 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/06/23 12:49:18 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,18 @@
 
 BitcoinExchange::BitcoinExchange() {}
 BitcoinExchange::~BitcoinExchange() {}
+
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &other)
+{
+	this->rates = other.rates;
+}
+
+BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other)
+{
+	if (this != &other)
+		this->rates = other.rates;
+	return *this;
+}
 
 static bool isLeap(int year)
 {
