@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 07:18:20 by lyanga            #+#    #+#             */
-/*   Updated: 2026/04/06 19:24:55 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/06/23 17:31:37 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 #include <vector>
 #include <deque>
 
-class PmergeMe {
-public:
-	PmergeMe();
-	~PmergeMe();
+namespace PmergeMe 
+{
+	std::vector<int> sortVectorStdSort(std::vector<int> input);
+	std::deque<int> sortDequeStdSort(std::deque<int> input);
 
-	static std::vector<int> sortVector(const std::vector<int> &input);
-	static std::deque<int> sortDeque(const std::deque<int> &input);
+	std::vector<int> FordJohnson(std::vector<int> input);
+	std::deque<int> sortDequeMergeInsert(std::deque<int> input);
 };
 
 #endif // PMERGEME_HPP

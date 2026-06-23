@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 07:18:12 by lyanga            #+#    #+#             */
-/*   Updated: 2026/04/06 19:24:55 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/06/23 17:31:37 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int main(int argc, char **argv) {
 		return 1;
 	}
 	std::vector<int> vi;
-	std::deque<int> di;
+	// std::deque<int> di;
 
 	for (int i = 1; i < argc; ++i) {
 		std::string s(argv[i]);
@@ -43,29 +43,31 @@ int main(int argc, char **argv) {
 		}
 		int v = std::atoi(s.c_str());
 		vi.push_back(v);
-		di.push_back(v);
+		// di.push_back(v);
 	}
 
-	std::cout << "Before:";
-	for (size_t i = 0; i < vi.size(); ++i) std::cout << " " << vi[i];
-	std::cout << std::endl;
+	PmergeMe::FordJohnson(vi);
 
-	clock_t start_v = clock();
-	std::vector<int> sorted_v = PmergeMe::sortVector(vi);
-	clock_t end_v = clock();
+	// std::cout << "Before:";
+	// for (size_t i = 0; i < vi.size(); ++i) std::cout << " " << vi[i];
+	// std::cout << std::endl;
 
-	clock_t start_d = clock();
-	std::deque<int> sorted_d = PmergeMe::sortDeque(di);
-	clock_t end_d = clock();
+	// clock_t start_v = clock();
+	// std::vector<int> sorted_v = PmergeMe::sortVectorStdSort(vi);
+	// clock_t end_v = clock();
 
-	std::cout << "After:";
-	for (size_t i = 0; i < sorted_v.size(); ++i) std::cout << " " << sorted_v[i];
-	std::cout << std::endl;
+	// clock_t start_d = clock();
+	// std::deque<int> sorted_d = PmergeMe::sortDequeStdSort(di);
+	// clock_t end_d = clock();
 
-	double time_v = double(end_v - start_v) / CLOCKS_PER_SEC * 1000000.0;
-	double time_d = double(end_d - start_d) / CLOCKS_PER_SEC * 1000000.0;
-	std::cout << "Time to process a range of " << vi.size() << " elements with std::vector : " << time_v << " us" << std::endl;
-	std::cout << "Time to process a range of " << di.size() << " elements with std::deque : " << time_d << " us" << std::endl;
+	// std::cout << "After:";
+	// for (size_t i = 0; i < sorted_v.size(); ++i) std::cout << " " << sorted_v[i];
+	// std::cout << std::endl;
+
+	// double time_v = double(end_v - start_v) / CLOCKS_PER_SEC * 1000000.0;
+	// double time_d = double(end_d - start_d) / CLOCKS_PER_SEC * 1000000.0;
+	// std::cout << "Time to process a range of " << vi.size() << " elements with std::vector : " << time_v << " us" << std::endl;
+	// std::cout << "Time to process a range of " << di.size() << " elements with std::deque : " << time_d << " us" << std::endl;
 
 	return 0;
 }
