@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 07:18:12 by lyanga            #+#    #+#             */
-/*   Updated: 2026/06/23 17:31:37 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/06/24 18:59:45 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,16 @@ int main(int argc, char **argv) {
 		vi.push_back(v);
 		// di.push_back(v);
 	}
-
-	PmergeMe::FordJohnson(vi);
+	try
+	{
+		PmergeMe::fordJohnson(vi);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "caught a snug" << std::endl;
+		std::cerr << e.what() << '\n';
+	}
+	
 
 	// std::cout << "Before:";
 	// for (size_t i = 0; i < vi.size(); ++i) std::cout << " " << vi[i];
