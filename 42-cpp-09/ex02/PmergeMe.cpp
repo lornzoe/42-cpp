@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 07:18:18 by lyanga            #+#    #+#             */
-/*   Updated: 2026/06/25 09:50:37 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/06/25 17:14:12 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,32 @@
 #include <iostream>
 #include <sstream>
 
-// static bool isSorted(const std::vector<int> &v) {
-// 	for (size_t i = 1; i < v.size(); ++i) {
-// 		if (v[i-1] > v[i]) return false;
-// 	}
-// 	return true;
-// }
+static bool isSorted(const std::vector<int> &v) {
+	for (size_t i = 1; i < v.size(); ++i) {
+		if (v[i-1] > v[i]) return false;
+	}
+	return true;
+}
+
+int PmergeMe::comparison = 0;
+
+long long get_sorting_number(long long n) {
+    if (n <= 0) {
+        return 0;
+    }
+
+    long long target = 3 * n + 3;
+    long long z = 0;
+    
+	while (target >>= 1) {
+        z++;
+    }
+
+    long long power_of_two = 1LL << (z + 2);
+    long long result = n * (z - 1) - ((power_of_two - 3 * z) / 6);
+
+    return result;
+}
 
 std::vector<int> PmergeMe::sortVectorStdSort(std::vector<int> input) {
 	std::vector<int> out(input);
@@ -53,6 +73,7 @@ static int binarySearchInsertion(const F& container, int target, int high = -1)
 			low = mid + 1;
 		else
 			high = mid;
+		PmergeMe::comparison += 1;
 	}
 	return low;
 }
@@ -70,7 +91,7 @@ static void logContatiners(const F& A, const F& B, std::string initMessage = "")
 
 }
 
-static std::vector<size_t> getJacobstalSequence(size_t n)
+static std::vector<size_t> getJacobsthalSequence(size_t n)
 {
 	std::vector<size_t> jacob;
 	//jacob.push_back(1);
@@ -85,7 +106,7 @@ static std::vector<size_t> getJacobstalSequence(size_t n)
 	while (true) {
 		size_t next = jacob.back() + 2 * jacob[jacob.size() - 2];
 		if (next >= n) {
-			jacob.push_back(n); // Cap it at the max index size needed
+			jacob.push_back(n); // Cap it at the max index size instead
 			break;
 		}
 		jacob.push_back(next);
@@ -93,7 +114,7 @@ static std::vector<size_t> getJacobstalSequence(size_t n)
 	return jacob;
 }
 
-std::vector<int> PmergeMe::fordJohnson(std::vector<int> input)
+std::vector<int> PmergeMe::fordJohnson(std::vector<int> input, bool isTop)
 {
 	std::cout << "=== entering fj recusion, down by 1" << std::endl;
 	size_t size = input.size();
@@ -111,6 +132,7 @@ std::vector<int> PmergeMe::fordJohnson(std::vector<int> input)
 		p.loser = input[2*i + 1];
 		if (p.winner < p.loser)
 			std::swap(p.winner, p.loser);
+		PmergeMe::comparison += 1;
 		pairs.push_back(p);
 	}
 	if (size % 2)
@@ -155,69 +177,48 @@ std::vector<int> PmergeMe::fordJohnson(std::vector<int> input)
 		logContatiners(A, B, "free insert; ");
 	}
 
+	std::vector<size_t> jacobSeq = getJacobsthalSequence(B.size());
+	size_t last_inserted_idx = 1; 
 
-	// AI GENERATED SOLUTION
-	// TAKE SOME TIME TO FIGURE OUT WHAT IS GOING ON HERE
+	for (size_t k = 1; k < jacobSeq.size(); ++k) 
 	{
-		std::vector<size_t> jacobSeq = getJacobstalSequence(B.size());
-		size_t last_inserted_idx = 1; 
-
-		for (size_t k = 1; k < jacobSeq.size(); ++k) 
-		{
-			size_t upper_bound_idx = jacobSeq[k];
-			if (upper_bound_idx > B.size()) {
-				upper_bound_idx = B.size();
-			}
-			
-			for (size_t i = (upper_bound_idx) - 1; i >= (last_inserted_idx); --i) {
-				int target = B[i];
-				
-				// 1. Find the actual winner matching this specific loser target
-				int matching_winner = -1;
-				for (size_t j = 0; j < pairs.size(); ++j) {
-					if (pairs[j].loser == target) {
-						matching_winner = pairs[j].winner;
-						break;
-					}
-				}
-
-				// 2. Locate where that winner is currently sitting in A to define the binary search upper bound
-				std::vector<int>::iterator winner_it = std::find(A.begin(), A.end(), matching_winner);
-				int high_bound = std::distance(A.begin(), winner_it);
-
-				// 3. Perform binary search and insert safely
-				int pos = binarySearchInsertion(A, target, high_bound);
-				A.insert(A.begin() + pos, target);
-				
-				std::stringstream ss;
-				ss << "ins " << target << " to pos " << pos << ";";
-				logContatiners(A, B, ss.str());
-			}
-			last_inserted_idx = upper_bound_idx;
+		size_t upper_bound_idx = jacobSeq[k];
+		if (upper_bound_idx > B.size()) {
+			upper_bound_idx = B.size();
 		}
+		std::cout << "jacobsthal # = " << jacobSeq[k]
+			<< ", upperBound is at " << upper_bound_idx << "(index "<< upper_bound_idx - 1 << ")" <<std::endl;
+		for (size_t i = (upper_bound_idx) - 1; i >= (last_inserted_idx); --i)
+		{
+			int target = B[i];
+			int matching_winner = -1;
+			for (size_t j = 0; j < pairs.size(); ++j) {
+				if (pairs[j].loser == target) {
+					matching_winner = pairs[j].winner;
+					break;
+				}
+			}
+			std::vector<int>::iterator winner_it = std::find(A.begin(), A.end(), matching_winner);
+			int high_bound = std::distance(A.begin(), winner_it);
+			int pos = binarySearchInsertion(A, target, high_bound);
+			A.insert(A.begin() + pos, target);
+			
+			std::stringstream ss;
+			ss << "index " << i << " (B[i] = " << target << ") to pos " << pos << ";";
+			logContatiners(A, B, ss.str());
+			std::cout << "comparisons so far: " << comparison << std::endl;
+		}
+		last_inserted_idx = upper_bound_idx;
 	}
-
-	// if (size % 2 != 0) {
-	//     int pos = binarySearchInsertion(A, extra, A.size());
-	//     A.insert(A.begin() + pos, extra);
-	// 	std::stringstream ss;
-	// 	ss << "ins " << extra << "(straggler)" << " to pos " << pos << ";";
-	// 	logContatiners(A, B, ss.str());
-	// }
-	
-	// old insertion
-	/*
-	for (size_t i  = 1; i < B.size(); ++i)
-	{
-		int pos = binarySearchInsertion(A, B[i], i * 2);
-		A.insert(A.begin() + pos, B[i]);
-	
-		std::stringstream ss;
-		ss << "ins " << B[i] << "from i of " << i << " to pos " << pos << ";";
-		logContatiners(A, B, ss.str());
-	}
-	*/
 
 	std::cout << "=== end of recursion, going up one" << std::endl;
+	std::cout << "SORTED CHECK: ";
+	if (isSorted(A))
+		std::cout << "TRUE" << std::endl;
+	else
+		std::cout << "FALSE" << std::endl;
+	
+	if (isTop)
+		std::cout << "EXPECTED MAX COMPARISONS: " << get_sorting_number(A.size()) << std::endl;
 	return A;
 }

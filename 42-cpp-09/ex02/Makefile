@@ -6,7 +6,7 @@
 #    By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/24 07:18:15 by lyanga            #+#    #+#              #
-#    Updated: 2026/06/24 19:00:46 by lyanga           ###   ########.fr        #
+#    Updated: 2026/06/25 16:32:53 by lyanga           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,10 @@ OBJS     = $(SRCS:.cpp=.o)
 DEPS     = $(SRCS:.cpp=.d)
 
 all: $(NAME)
+
+debug: CXXFLAGS += -DDEBUG
+
+debug: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)

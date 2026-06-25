@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 07:18:12 by lyanga            #+#    #+#             */
-/*   Updated: 2026/06/24 18:59:45 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/06/25 16:29:58 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,9 @@ int main(int argc, char **argv) {
 	}
 	try
 	{
-		PmergeMe::fordJohnson(vi);
+		PmergeMe::comparison = 0;
+		PmergeMe::fordJohnson(vi, true);
+		std::cout << "COMPARISONS MADE: " << PmergeMe::comparison << std::endl;
 	}
 	catch(const std::exception& e)
 	{
