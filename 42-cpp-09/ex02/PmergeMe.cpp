@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 07:18:18 by lyanga            #+#    #+#             */
-/*   Updated: 2026/06/25 17:14:12 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/07/02 03:54:03 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <sstream>
 
 static bool isSorted(const std::vector<int> &v) {
-	for (size_t i = 1; i < v.size(); ++i) {
+	for (std::size_t i = 1; i < v.size(); ++i) {
 		if (v[i-1] > v[i]) return false;
 	}
 	return true;
@@ -82,18 +82,18 @@ template <typename F>
 static void logContatiners(const F& A, const F& B, std::string initMessage = "")
 {
 	std::cout << initMessage << " A[ ";
-	for (size_t j = 0; j < A.size(); ++j)
+	for (std::size_t j = 0; j < A.size(); ++j)
 		std::cout << A[j] << " ";
 	std::cout << "] B[ ";
-	for (size_t j = 0; j < B.size(); ++j)
+	for (std::size_t j = 0; j < B.size(); ++j)
 		std::cout << B[j] << " ";
 	std::cout << "]" << std::endl;
 
 }
 
-static std::vector<size_t> getJacobsthalSequence(size_t n)
+static std::vector<std::size_t> getJacobsthalSequence(std::size_t n)
 {
-	std::vector<size_t> jacob;
+	std::vector<std::size_t> jacob;
 	//jacob.push_back(1);
 	if (n == 0)
 		return jacob;
@@ -104,7 +104,7 @@ static std::vector<size_t> getJacobsthalSequence(size_t n)
 	
 	jacob.push_back(3);
 	while (true) {
-		size_t next = jacob.back() + 2 * jacob[jacob.size() - 2];
+		std::size_t next = jacob.back() + 2 * jacob[jacob.size() - 2];
 		if (next >= n) {
 			jacob.push_back(n); // Cap it at the max index size instead
 			break;
@@ -117,7 +117,7 @@ static std::vector<size_t> getJacobsthalSequence(size_t n)
 std::vector<int> PmergeMe::fordJohnson(std::vector<int> input, bool isTop)
 {
 	std::cout << "=== entering fj recusion, down by 1" << std::endl;
-	size_t size = input.size();
+	std::size_t size = input.size();
 	if (size <= 1)
 		return input;
 
@@ -144,11 +144,11 @@ std::vector<int> PmergeMe::fordJohnson(std::vector<int> input, bool isTop)
 	A = fordJohnson(winners);
 
 	std::cout << "winners: [ ";
-	for (size_t i = 0; i < A.size(); ++i)
+	for (std::size_t i = 0; i < A.size(); ++i)
 	{
 		std::cout << A[i] << ' ';
 
-		for (size_t j = 0; j < pairs.size(); ++j)
+		for (std::size_t j = 0; j < pairs.size(); ++j)
 		{
 			if (pairs[j].winner == A[i])
 			{
@@ -177,22 +177,22 @@ std::vector<int> PmergeMe::fordJohnson(std::vector<int> input, bool isTop)
 		logContatiners(A, B, "free insert; ");
 	}
 
-	std::vector<size_t> jacobSeq = getJacobsthalSequence(B.size());
-	size_t last_inserted_idx = 1; 
+	std::vector<std::size_t> jacobSeq = getJacobsthalSequence(B.size());
+	std::size_t last_inserted_idx = 1; 
 
-	for (size_t k = 1; k < jacobSeq.size(); ++k) 
+	for (std::size_t k = 1; k < jacobSeq.size(); ++k) 
 	{
-		size_t upper_bound_idx = jacobSeq[k];
+		std::size_t upper_bound_idx = jacobSeq[k];
 		if (upper_bound_idx > B.size()) {
 			upper_bound_idx = B.size();
 		}
 		std::cout << "jacobsthal # = " << jacobSeq[k]
 			<< ", upperBound is at " << upper_bound_idx << "(index "<< upper_bound_idx - 1 << ")" <<std::endl;
-		for (size_t i = (upper_bound_idx) - 1; i >= (last_inserted_idx); --i)
+		for (std::size_t i = (upper_bound_idx) - 1; i >= (last_inserted_idx); --i)
 		{
 			int target = B[i];
 			int matching_winner = -1;
-			for (size_t j = 0; j < pairs.size(); ++j) {
+			for (std::size_t j = 0; j < pairs.size(); ++j) {
 				if (pairs[j].loser == target) {
 					matching_winner = pairs[j].winner;
 					break;
