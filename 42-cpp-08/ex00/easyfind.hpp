@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 07:17:07 by lyanga            #+#    #+#             */
-/*   Updated: 2026/04/06 19:24:53 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/07/02 03:50:56 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 #define EASYFIND_HPP
 
 #include <algorithm>
+#include <utility>
 
 template<typename T>
-typename T::iterator easyfind(T &container, int value)
+std::pair<bool, typename T::iterator> easyfind(T &container, int value)
 {
-	return std::find(container.begin(), container.end(), value);
+	typename T::iterator it = std::find(container.begin(), container.end(), value);
+	return std::make_pair(it != container.end(), it);
 }
-
 #endif // EASYFIND_HPP
