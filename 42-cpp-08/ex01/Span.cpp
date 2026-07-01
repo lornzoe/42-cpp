@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 14:26:34 by lyanga            #+#    #+#             */
-/*   Updated: 2026/06/16 17:32:12 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/07/02 01:35:52 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,31 +31,31 @@ Span::~Span() {}
 
 void Span::addNumber(int v) {
     if (data.size() >= n)
-        throw std::overflow_error("Span is full");
+        throw std::length_error("Span is full");
     data.push_back(v);
 }
 
-unsigned int Span::shortestSpan() const {
+long Span::shortestSpan() const {
     if (data.size() < 2)
-        throw std::runtime_error("Not enough numbers for span");
+        throw std::logic_error("Not enough numbers for span");
 
     std::vector<int> tmp(data.begin(), data.end());
     std::sort(tmp.begin(), tmp.end());
 
-    unsigned int best = static_cast<unsigned int>(tmp[1] - tmp[0]);
-    for (size_t i = 1; i + 1 < tmp.size(); ++i) {
-        unsigned int d = static_cast<unsigned int>(tmp[i + 1] - tmp[i]);
+    long best = static_cast<long>(tmp[1]) - static_cast<long>(tmp[0]);
+    for (size_t i = 1; i < tmp.size() - 1; ++i) {
+        long d = static_cast<long>(tmp[i + 1]) - static_cast<long>(tmp[i]);
         if (d < best)
             best = d;
     }
     return best;
 }
 
-unsigned int Span::longestSpan() const {
+long Span::longestSpan() const {
     if (data.size() < 2)
-        throw std::runtime_error("Not enough numbers for span");
+        throw std::logic_error("Not enough numbers for span");
 
-    int min = *std::min_element(data.begin(), data.end());
-    int max = *std::max_element(data.begin(), data.end());
-    return static_cast<unsigned int>(max - min);
+    long min = *std::min_element(data.begin(), data.end());
+    long max = *std::max_element(data.begin(), data.end());
+    return (max - min);
 }

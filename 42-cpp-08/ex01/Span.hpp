@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 07:17:23 by lyanga            #+#    #+#             */
-/*   Updated: 2026/06/23 21:42:07 by lyanga           ###   ########.fr       */
+/*   Updated: 2026/07/02 01:04:01 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include <vector>
 #include <iostream>
+#include <iterator>
+#include <stdexcept>
 
 class Span {
 public:
@@ -28,8 +30,8 @@ public:
     template <typename T>
     void addNumber(T start, T end);
     
-    unsigned int shortestSpan() const;
-    unsigned int longestSpan() const;
+    long shortestSpan() const;
+    long longestSpan() const;
 
 private:
     unsigned int n;
@@ -39,14 +41,14 @@ private:
 template <typename T>
 void Span::addNumber(T start, T end)
 {
-    while (start != end)
-    {
-        if (data.size() >= n)
-            throw std::overflow_error("Span is full");
-        addNumber(*start);
-        std::cout << "added: " << *start << std::endl;
-        ++start;
-    }
+    typename std::iterator_traits<T>::difference_type dist = std::distance(start, end);
+    if (dist < 0)
+        throw std::invalid_argument("Invalid iterator range");
+
+    std::size_t rangeSize = static_cast<std::size_t>(dist);
+    if (data.size() + rangeSize > static_cast<std::size_t>(n))
+        throw std::length_error("Inserted range will exceed span size");
+    data.insert(data.end(), start, end);
 }
 
 #endif
